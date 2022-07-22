@@ -13,3 +13,9 @@ kubectl create -n istio-system secret generic oreore-turaiwork-credential \
   --from-file=key=server.key \
   --from-file=cert=server.crt
 secret/oreore-turaiwork-credential created
+
+
+kubectl -n argocd patch svc argocd-server -p '{[{"name":"http","nodePort":30599,"port":80,"protocol":"TCP","targetPort":8080},{"name":"grpc","nodePort":32477,"port":443,"protocol":"TCP","targetPort":8080}]}'
+
+
+{"ports":[{"name":"http","nodePort":30599,"port":80,"protocol":"TCP","targetPort":8080},{"name":"https","nodePort":32477,"port":443,"protocol":"TCP","targetPort":8080}]}
