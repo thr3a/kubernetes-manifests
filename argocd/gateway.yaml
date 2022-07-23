@@ -36,7 +36,19 @@ spec:
   hosts:
     - argocd.turai.work
   http:
+    - name: grpc
+      match:
+        - headers:
+            user-agent:
+              prefix: argocd-client
+      route:
+        - destination:
+            host: argocd-server
+            port:
+              number: 443
     - name: http
       route:
         - destination:
             host: argocd-server
+            port:
+              number: 80
