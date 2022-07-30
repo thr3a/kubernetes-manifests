@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: debugger
+spec:
+  selector:
+    matchLabels:
+      app: debugger
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: debugger
+    spec:
+      containers:
+      - name: hoge
+        image: thr3a/debugger
+        resources: {}
+        command:
+          - sleep
+          - infinity

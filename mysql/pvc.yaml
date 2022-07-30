@@ -1,0 +1,12 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: nfs-test-pvc
+  namespace: mysql
+spec:
+  storageClassName: nfs-test
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 100Gi

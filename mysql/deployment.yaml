@@ -1,0 +1,65 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+  namespace: mysql
+spec:
+  selector:
+    app: mysql-server
+  ports:
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-server
+  namespace: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql-server
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: mysql-server
+    spec:
+      containers:
+        - image: mysql:5.7
+          name: mysql-server
+          resources:
+            requests:
+              memory: 4Gi
+          args:
+            - --character-set-server=utf8mb4
+            - --collation-server=utf8mb4_bin
+            - --innodb_buffer_pool_size=3Gi
+            - --max_connections=1024
+            - --sort_buffer_size=1M
+            - --query_cache_size=32M
+            - --innodb_log_file_size=128M
+            - --innodb_flush_log_at_trx_commit=0
+          env:
+            - name: MYSQL_USER
+              value: user
+            - name: MYSQL_PASSWORD
+              value: password
+            - name: MYSQL_ROOT_PASSWORD
+              value: password
+            - name: LANG
+              value: C.UTF-8
+            - name: TZ
+              value: Asia/Tokyo
+          ports:
+            - containerPort: 3306
+          volumeMounts:
+            - mountPath: /var/lib/mysql
+              name: pvc01
+      volumes:
+        - name: pvc01
+          persistentVolumeClaim:
+            claimName: nfs-test-pvc
