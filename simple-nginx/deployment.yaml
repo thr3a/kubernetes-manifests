@@ -27,9 +27,3 @@ spec:
         resources: {}
         ports:
         - containerPort: 80
-      - image: thr3a/debugger
-        name: hoge
-        resources: {}
-        command:
-          - sleep
-          - infinity
