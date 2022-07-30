@@ -1,0 +1,20 @@
+architecture: replication
+storageClass: nfs-test
+image:
+  debug: true
+auth:
+  rootPassword: AYv9b8KNXA
+  username: test
+  password: password
+  replicationPassword: oafwKL3J6k
+primary:
+  service:
+    type: LoadBalancer
+  persistence:
+    storageClass: nfs-test
+secondary:
+  replicaCount: 2
+  service:
+    type: LoadBalancer
+  persistence:
+    storageClass: nfs-test

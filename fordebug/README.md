@@ -1,13 +1,11 @@
-kubectl exec -it deploy/debugger -- sh
+# インストール
 
+```
+k apply -f deployment.yaml -n default
+```
 
-kubernetes-rails-example-load-balancer.myrails.svc.cluster.local
+# デバッガー起動
 
-
-mysql.mysql.svc.cluster.local
-
-
-Serviceへは service.namespace.svc.cluster.local で名前解決ができ、アクセスできます。 こちらは基礎的なことなので知っている方も多いかと思います。もし知らなかったという方は、デバッグに非常に役立ちますのでぜひ理解しておくといいです。 (公式ドキュメント: ServiceとPodに対するDNS - Kubernetes)
-
-
-mynginx.default.svc.cluster.local
+```
+kubectl exec -it deploy/debugger -n default -- sh
+```

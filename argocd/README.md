@@ -4,10 +4,9 @@
 kubectl create -n istio-system secret generic oreore-turaiwork-credential \
   --from-file=key=server.key \
   --from-file=cert=server.crt
-
-kubectl apply -k ./
+kubectl create ns argocd
+kubectl apply -k ./ -n argocd
 ``` 
-
 
 # 参考リンク
 
