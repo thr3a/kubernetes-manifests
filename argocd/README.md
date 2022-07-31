@@ -1,4 +1,4 @@
-# HOW TO USE
+# インストール
 
 ```
 kubectl create -n istio-system secret generic oreore-turaiwork-credential \
@@ -6,7 +6,7 @@ kubectl create -n istio-system secret generic oreore-turaiwork-credential \
   --from-file=cert=server.crt
 kubectl create ns argocd
 kubectl apply -k ./ -n argocd
-``` 
+```
 
 # 参考リンク
 
