@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: nextjs-blog
-          image: ghcr.io/thr3a/nextjs-blog:12
+          image: ghcr.io/thr3a/nextjs-blog:13
           resources: {}
           ports:
             - containerPort: 3000
