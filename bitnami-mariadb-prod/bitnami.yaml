@@ -1,20 +1,19 @@
 architecture: standalone
-storageClass: nfs-test
-auth:
-  rootPassword: password
+storageClass: nfs-production
 image:
   debug: true
 primary:
   service:
     type: LoadBalancer
+    loadBalancerIP: 192.168.16.40
   extraEnvVars:
     - name: TZ
       value: "Asia/Tokyo"
   persistence:
-    storageClass: nfs-test
+    storageClass: nfs-production
   resources:
     requests:
-      memory: 1Gi
+      memory: 8Gi
   configuration: |-
     [mysqld]
     skip-name-resolve
@@ -33,11 +32,11 @@ primary:
     slow_query_log=0
     slow_query_log_file=/opt/bitnami/mariadb/logs/mysqld.log
     long_query_time=10.0
-    innodb_buffer_pool_size=128M
+    innodb_buffer_pool_size=6G
     max_connections=1024
     sort_buffer_size=1M
     query_cache_size=32M
-    innodb_log_file_size=16M
+    innodb_log_file_size=512M
     innodb_flush_log_at_trx_commit=0
     sync_binlog=0
     skip-log-bin
