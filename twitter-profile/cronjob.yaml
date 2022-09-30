@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: update_description
 spec:
-  schedule: "10 15 * * *"
+  schedule: "15 15 * * *"
   parallelism: 1
   jobTemplate:
     spec:
