@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: update_description
+spec:
+  schedule: "10 15 * * *"
+  parallelism: 1
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: update_description
+            image: ghcr.io/thr3a/auto-twitter-profile-generater:latest
+            resources: {}
+            command:
+            - python
+            - description.py
+            envFrom:
+            - secretRef:
+                name: my-secret
+          restartPolicy: Never
