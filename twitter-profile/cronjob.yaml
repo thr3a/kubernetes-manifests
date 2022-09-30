@@ -10,7 +10,7 @@ spec:
         spec:
           containers:
             - name: update-description
-              image: ghcr.io/thr3a/auto-twitter-profile-generater:latest
+              image: ghcr.io/thr3a/auto-twitter-profile-generater:2
               resources: {}
               command:
                 - python
