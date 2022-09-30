@@ -1,0 +1,5 @@
+{
+  "yaml.schemas": {
+    "kubernetes://schema/batch/v1@cronjob": "file:///Users/thr3a/works/kubernetes-manifests/twitter-profile/cronjob.yaml"
+  }
+}
