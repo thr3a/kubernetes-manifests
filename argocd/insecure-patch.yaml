@@ -12,4 +12,5 @@ spec:
       - command:
         - argocd-server
         - --insecure
+        - --app-resync 10
         name: argocd-server
