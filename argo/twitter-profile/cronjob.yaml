@@ -4,7 +4,7 @@ metadata:
   name: description
 spec:
   # UTC
-  schedule: "31 20 * * *"
+  schedule: "32 20 * * *"
   jobTemplate:
     spec:
       template:
