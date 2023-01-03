@@ -6,15 +6,6 @@ spec:
   selector:
     matchLabels:
       app: qa-generator
-  affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-        - matchExpressions:
-          - key: kubernetes.io/hostname
-            operator: In
-            values:
-            - ubuntu02
   template:
     metadata:
       labels:
@@ -31,3 +22,12 @@ spec:
           # envFrom:
           #   - secretRef:
           #       name: my-secret
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - ubuntu02
