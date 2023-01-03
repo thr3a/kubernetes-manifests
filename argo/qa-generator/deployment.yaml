@@ -14,9 +14,7 @@ spec:
       containers:
         - name: qa-generator
           image: ghcr.io/thr3a/qa-generator:6
-          resources:
-            requests:
-              memory: 8Gi
+          resources: {}
           ports:
             - containerPort: 7860
           # envFrom:
