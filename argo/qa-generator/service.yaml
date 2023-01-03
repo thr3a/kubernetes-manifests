@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: qa-generator-svc
+spec:
+  type: LoadBalancer
+  selector:
+    app: qa-generator
+  ports:
+    - port: 80
+      targetPort: 7860

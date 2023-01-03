@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qa-generator
+spec:
+  selector:
+    matchLabels:
+      app: qa-generator
+  template:
+    metadata:
+      labels:
+        app: qa-generator
+    spec:
+      containers:
+        - name: qa-generator
+          image: ghcr.io/thr3a/qa-generator:latest
+          resources: {}
+          ports:
+            - containerPort: 7860
+          # envFrom:
+          #   - secretRef:
+          #       name: my-secret
