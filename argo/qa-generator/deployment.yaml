@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: qa-generator
-          image: ghcr.io/thr3a/qa-generator:5
+          image: ghcr.io/thr3a/qa-generator:6
           resources:
             requests:
               memory: 8Gi
