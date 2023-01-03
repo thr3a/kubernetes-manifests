@@ -16,7 +16,7 @@ spec:
           image: ghcr.io/thr3a/qa-generator:3
           resources:
             requests:
-              memory: 4Gi
+              memory: 8Gi
           ports:
             - containerPort: 7860
           # envFrom:
