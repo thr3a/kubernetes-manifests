@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: qa-generator
-          image: ghcr.io/thr3a/qa-generator:latest
+          image: ghcr.io/thr3a/qa-generator:3
           resources: {}
           ports:
             - containerPort: 7860
