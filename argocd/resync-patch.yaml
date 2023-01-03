@@ -1,0 +1,10 @@
+# NOTE: https://github.com/argoproj/argo-cd/blob/master/docs/operator-manual/upgrading/2.0-2.1.md#replacing---app-resync-flag-with-timeoutreconciliation-setting
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cm
+data:
+  # Application reconciliation timeout is the max amount of time required to discover if a new manifests version got
+  # published to the repository. Reconciliation by timeout is disabled if timeout is set to 0. Three minutes by default.
+  # > Note: argocd-repo-server deployment must be manually restarted after changing the setting.
+  timeout.reconciliation: 10s
