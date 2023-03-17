@@ -1,0 +1,23 @@
+--- httpbin-gateway.yaml	2023-03-18 03:07:34
++++ gateway.yaml	2023-01-04 20:59:02
+@@ -11,7 +11,7 @@
+       name: http
+       protocol: HTTP
+     hosts:
+-    - "*"
++    - "httpbin1.turai.work"
+ ---
+ apiVersion: networking.istio.io/v1alpha3
+ kind: VirtualService
+@@ -19,9 +19,10 @@
+   name: httpbin
+ spec:
+   hosts:
+-  - "*"
++  - "httpbin1.turai.work"
+   gateways:
+   - httpbin-gateway
++  - mesh
+   http:
+   - route:
+     - destination:

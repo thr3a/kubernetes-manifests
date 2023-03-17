@@ -1,34 +1,42 @@
-# Base
-
-https://github.com/istio/istio/blob/release-1.14/samples/httpbin/httpbin.yaml
-
-# Command
-
 ```
 kubectl create namespace httpbin
 kubectl label namespace httpbin istio-injection=enabled
-kubectl apply -f app.yaml -n httpbin
-kubectl apply -f gateway.yaml -n httpbin
+wget https://raw.githubusercontent.com/istio/istio/release-1.17/samples/httpbin/httpbin.yaml
+wget https://raw.githubusercontent.com/istio/istio/release-1.17/samples/httpbin/httpbin-gateway.yaml
+kubectl apply -f httpbin.yaml -n httpbin
+kubectl apply -f httpbin-gateway.yaml -n httpbin
 ```
 
-# 確認
+確認
 
 ```
 ❯ kubectl get pods,deployments,svc,virtualservice -n httpbin
 NAME                           READY   STATUS    RESTARTS   AGE
-pod/httpbin-847f64cc8d-btk28   2/2     Running   0          2m59s
-pod/httpbin-847f64cc8d-v7hn8   2/2     Running   0          2m59s
+pod/httpbin-847f64cc8d-dgb89   2/2     Running   0          8m47s
 
 NAME                      READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/httpbin   2/2     2            2           3m9s
+deployment.apps/httpbin   1/1     1            1           38m
 
-NAME              TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
-service/httpbin   ClusterIP   10.105.210.23   <none>        8000/TCP   3m9s
+NAME              TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
+service/httpbin   ClusterIP   10.96.125.29   <none>        8000/TCP   38m
 
 NAME                                         GATEWAYS                     HOSTS                     AGE
-virtualservice.networking.istio.io/httpbin   ["httpbin-gateway","mesh"]   ["httpbin1.turai.work"]   2m55s
+virtualservice.networking.istio.io/httpbin   ["httpbin-gateway","mesh"]   ["httpbin1.turai.work"]   51s
 ```
 
+ポートフォワードで確認 http://localhost:3000/
+
 ```
-curl --resolve httpbin1.turai.work:80:10.0.0.210 http://httpbin1.turai.work
+k port-forward svc/httpbin 3000:8000 -n httpbin
+```
+
+```sh
+export INGRESS_HOST=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+export INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].port}')
+```
+
+確認
+
+```
+curl -H 'Host: httpbin1.turai.work' "http://$INGRESS_HOST:$INGRESS_PORT/headers"
 ```
