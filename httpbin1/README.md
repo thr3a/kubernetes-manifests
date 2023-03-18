@@ -10,7 +10,7 @@ kubectl apply -f httpbin-gateway.yaml -n httpbin
 確認
 
 ```
-❯ kubectl get pods,deployments,svc,virtualservice -n httpbin
+kubectl get pods,deployments,svc,virtualservice -n httpbin
 NAME                           READY   STATUS    RESTARTS   AGE
 pod/httpbin-847f64cc8d-dgb89   2/2     Running   0          8m47s
 
