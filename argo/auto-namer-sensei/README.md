@@ -2,6 +2,7 @@
 
 ```sh
 k create ns auto-namer-sensei
+k label namespace auto-namer-sensei istio-injection=enabled
 
 k create secret generic my-secret -n auto-namer-sensei --from-env-file=.env
 
