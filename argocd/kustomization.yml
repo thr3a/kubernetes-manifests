@@ -1,6 +1,6 @@
 namespace: argocd
 resources:
-  - https://raw.githubusercontent.com/argoproj/argo-cd/v2.5.5/manifests/install.yaml
+  - https://raw.githubusercontent.com/argoproj/argo-cd/v2.6.6/manifests/install.yaml
   - gateway.yaml
 patches:
   - insecure-patch.yaml

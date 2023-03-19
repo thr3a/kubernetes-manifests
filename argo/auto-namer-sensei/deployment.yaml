@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auto-namer-sensei
+spec:
+  selector:
+    matchLabels:
+      app: auto-namer-sensei
+  template:
+    metadata:
+      labels:
+        app: auto-namer-sensei
+    spec:
+      containers:
+        - name: auto-namer-sensei
+          image: ghcr.io/thr3a/auto-namer-sensei:14
+          resources: {}
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - secretRef:
+                name: my-secret
