@@ -11,6 +11,7 @@ metadata:
     app: httpbin
     service: httpbin
 spec:
+  type: ClusterIP
   ports:
   - name: http
     port: 8000
