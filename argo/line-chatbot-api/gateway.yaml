@@ -11,4 +11,4 @@ spec:
       name: http
       protocol: HTTP
     hosts:
-    - "meimei-sensei.turai.work"
+    - "linebot.turai.work"
