@@ -13,7 +13,3 @@ argocd app create auto-namer-sensei --repo https://github.com/thr3a/kubernetes-m
 
 argocd app set auto-namer-sensei --sync-policy automated --auto-prune --allow-empty
 ```
-
-# 詳しく
-
-https://github.com/thr3a/auto-namer-sensei/blob/master/.github/workflows/build.yml
