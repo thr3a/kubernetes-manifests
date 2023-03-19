@@ -28,4 +28,4 @@ spec:
     - destination:
         host: auto-namer-sensei
         port:
-          number: 8000
+          number: 3000
