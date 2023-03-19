@@ -19,10 +19,9 @@ metadata:
   name: httpbin-vs
 spec:
   hosts:
-  - "httpbin1.turai.work"
+  - "*"
   gateways:
   - httpbin-gateway
-  - mesh
   http:
   - route:
     - destination:

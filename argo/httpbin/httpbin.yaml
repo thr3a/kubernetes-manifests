@@ -9,7 +9,7 @@ metadata:
   name: httpbin
   # labels:
   #   app: httpbin
-    # service: httpbin
+  #   service: httpbin
 spec:
   type: ClusterIP
   ports:
