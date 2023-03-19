@@ -4,12 +4,12 @@ metadata:
   name: vs
 spec:
   hosts:
-    - "*"
+  - "*"
   gateways:
-    - gw
+  - gw
   http:
-    - route:
-        - destination:
-            host: web
-            port:
-              number: 3000
+  - route:
+    - destination:
+        host: web
+        port:
+          number: 3000
