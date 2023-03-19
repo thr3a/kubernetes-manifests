@@ -1,16 +1,12 @@
 apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: auto-namer-sensei
----
-apiVersion: v1
 kind: Service
 metadata:
-  name: auto-namer-sensei-svc
+  name: web
 spec:
-  type: LoadBalancer
-  selector:
-    app: auto-namer-sensei
+  type: ClusterIP
   ports:
-    - port: 80
-      targetPort: 3000
+    - name: http
+      port: 8000
+      targetPort: 80
+  selector:
+    app: web

@@ -1,21 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: auto-namer-sensei
+  name: web
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      app: auto-namer-sensei
+      app: web
   template:
     metadata:
       labels:
-        app: auto-namer-sensei
+        app: web
     spec:
-      serviceAccountName: auto-namer-sensei
+      serviceAccountName: sa
       containers:
-        - name: auto-namer-sensei
-          image: ghcr.io/thr3a/auto-namer-sensei:6
+        - image: ghcr.io/thr3a/auto-namer-sensei:6
           resources: {}
+          imagePullPolicy: IfNotPresent
+          name: web
           ports:
             - containerPort: 3000
           envFrom:
