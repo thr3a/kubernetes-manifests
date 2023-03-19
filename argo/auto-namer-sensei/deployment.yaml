@@ -11,6 +11,7 @@ spec:
       labels:
         app: auto-namer-sensei
     spec:
+      serviceAccountName: auto-namer-sensei
       containers:
         - name: auto-namer-sensei
           image: ghcr.io/thr3a/auto-namer-sensei:6
