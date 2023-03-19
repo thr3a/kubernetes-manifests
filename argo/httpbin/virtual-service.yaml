@@ -10,6 +10,6 @@ spec:
   http:
   - route:
     - destination:
-        host: httpbin
+        host: web
         port:
           number: 8000
