@@ -9,4 +9,4 @@ spec:
     port: 8000
     targetPort: 80
   selector:
-    app: httpbin
+    app: web
