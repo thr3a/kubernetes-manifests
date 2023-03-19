@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: auto-namer-sensei
-          image: ghcr.io/thr3a/auto-namer-sensei:5
+          image: ghcr.io/thr3a/auto-namer-sensei:6
           resources: {}
           ports:
             - containerPort: 3000
