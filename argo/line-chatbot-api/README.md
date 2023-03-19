@@ -13,3 +13,5 @@ argocd app create line-chatbot-api --repo https://github.com/thr3a/kubernetes-ma
 
 argocd app set line-chatbot-api --sync-policy automated --auto-prune --allow-empty
 ```
+
+https://github.com/thr3a/chatgpt-linebot
