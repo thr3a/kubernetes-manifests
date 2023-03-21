@@ -14,7 +14,7 @@ spec:
     spec:
       serviceAccountName: sa
       containers:
-        - image: ghcr.io/thr3a/gpt-article-generator:8
+        - image: ghcr.io/thr3a/gpt-article-generator:9
           resources: {}
           imagePullPolicy: IfNotPresent
           name: web
