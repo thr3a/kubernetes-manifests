@@ -14,7 +14,7 @@ spec:
     spec:
       serviceAccountName: sa
       containers:
-        - image: ghcr.io/thr3a/debate-simulator:6
+        - image: ghcr.io/thr3a/debate-simulator:7
           resources: {}
           imagePullPolicy: IfNotPresent
           name: web
