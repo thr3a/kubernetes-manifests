@@ -13,3 +13,5 @@ argocd app create gpt-article-generator --repo https://github.com/thr3a/kubernet
 
 argocd app set gpt-article-generator --sync-policy automated --auto-prune --allow-empty
 ```
+
+kubectl create secret generic my-secret -n gpt-article-generator --from-env-file=.env --dry-run=client -o yaml | kubectl apply -f -

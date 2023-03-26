@@ -12,4 +12,7 @@ argocd app create auto-namer-sensei --repo https://github.com/thr3a/kubernetes-m
   --path ./argo/auto-namer-sensei
 
 argocd app set auto-namer-sensei --sync-policy automated --auto-prune --allow-empty
+
+
+kubectl create secret generic my-secret -n auto-namer-sensei --from-env-file=.env --dry-run=client -o yaml | kubectl apply -f -
 ```
