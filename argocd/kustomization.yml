@@ -4,6 +4,7 @@ resources:
 - gateway.yaml
 patches:
 - insecure-patch.yaml
+- resync-patch.yaml
 # - 2_4to2_5-patch.yaml
 patchesJson6902:
 - target:

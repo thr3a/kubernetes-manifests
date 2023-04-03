@@ -12,6 +12,8 @@ argocd app create line-chatbot-api --repo https://github.com/thr3a/kubernetes-ma
   --path ./argo/line-chatbot-api
 
 argocd app set line-chatbot-api --sync-policy automated --auto-prune --allow-empty
+
+kubectl create secret generic my-secret -n line-chatbot-api --from-env-file=.env --dry-run=client -o yaml | kubectl apply -f -
 ```
 
 https://github.com/thr3a/chatgpt-linebot
