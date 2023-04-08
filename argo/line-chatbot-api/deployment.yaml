@@ -14,7 +14,7 @@ spec:
     spec:
       serviceAccountName: sa
       containers:
-        - image: ghcr.io/thr3a/chatgpt-linebot:32
+        - image: ghcr.io/thr3a/chatgpt-linebot:33
           resources: {}
           imagePullPolicy: IfNotPresent
           name: web
