@@ -21,13 +21,9 @@ spec:
         - containerPort: 3000
         resources: {}
         imagePullPolicy: IfNotPresent
-        volumeMounts:
-        - mountPath: /data
-          name: growi-data
-        securityContext:
-          runAsUser: 0
-          runAsGroup: 0
-          allowPrivilegeEscalation: true
+        # volumeMounts:
+        # - mountPath: /data
+        #   name: growi-data
         env:
         - name: ELASTICSEARCH_URI
           value: http://elasticsearch:9200/growi
