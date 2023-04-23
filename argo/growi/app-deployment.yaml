@@ -9,12 +9,9 @@ spec:
   selector:
     matchLabels:
       io.kompose.service: app
-  strategy:
-    type: Recreate
   template:
     metadata:
       labels:
-        io.kompose.network/growi-docker-compose-default: "true"
         io.kompose.service: app
     spec:
       containers:
@@ -36,7 +33,7 @@ spec:
           value: mongodb://mongo:27017/growi
         - name: PASSWORD_SEED
           value: changeme
-        image: app
+        image: weseek/growi:6
         name: app
         ports:
         - containerPort: 3000

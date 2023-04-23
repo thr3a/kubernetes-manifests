@@ -14,7 +14,6 @@ spec:
   template:
     metadata:
       labels:
-        io.kompose.network/growi-docker-compose-default: "true"
         io.kompose.service: mongo
     spec:
       containers:
