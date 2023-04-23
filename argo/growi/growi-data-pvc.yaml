@@ -5,6 +5,7 @@ metadata:
     io.kompose.service: growi-data
   name: growi-data
 spec:
+  storageClassName: nfs-production
   accessModes:
   - ReadWriteOnce
   resources:

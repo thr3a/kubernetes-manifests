@@ -5,6 +5,7 @@ metadata:
     io.kompose.service: mongo-configdb
   name: mongo-configdb
 spec:
+  storageClassName: nfs-production
   accessModes:
   - ReadWriteOnce
   resources:
