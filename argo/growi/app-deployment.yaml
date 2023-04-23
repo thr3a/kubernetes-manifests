@@ -27,7 +27,7 @@ spec:
         securityContext:
           runAsUser: 0
           runAsGroup: 0
-          runAsNonRoot: false
+          allowPrivilegeEscalation: true
         env:
         - name: ELASTICSEARCH_URI
           value: http://elasticsearch:9200/growi
