@@ -5,6 +5,7 @@ metadata:
     io.kompose.service: es-data
   name: es-data
 spec:
+  storageClassName: nfs-production
   accessModes:
   - ReadWriteOnce
   resources:
