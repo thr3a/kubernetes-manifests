@@ -24,17 +24,17 @@ spec:
         volumeMounts:
         - mountPath: /data
           name: growi-data
-        args:
-        - yarn migrate && node -r dotenv-flow/config --expose_gc dist/server/app.js
-        command:
-        - dockerize
-        - -wait
-        - tcp://mongo:27017
-        - -wait
-        - tcp://elasticsearch:9200
-        - -timeout
-        - 60s
-        - /docker-entrypoint.sh
+        # args:
+        # - yarn migrate && node -r dotenv-flow/config --expose_gc dist/server/app.js
+        # command:
+        # - dockerize
+        # - -wait
+        # - tcp://mongo:27017
+        # - -wait
+        # - tcp://elasticsearch:9200
+        # - -timeout
+        # - 60s
+        # - /docker-entrypoint.sh
         env:
         - name: ELASTICSEARCH_URI
           value: http://elasticsearch:9200/growi
