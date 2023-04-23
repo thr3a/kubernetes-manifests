@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: app
+  name: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: app
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        io.kompose.network/growi-docker-compose-default: "true"
+        io.kompose.service: app
+    spec:
+      containers:
+      - args:
+        - yarn migrate && node -r dotenv-flow/config --expose_gc dist/server/app.js
+        command:
+        - dockerize
+        - -wait
+        - tcp://mongo:27017
+        - -wait
+        - tcp://elasticsearch:9200
+        - -timeout
+        - 60s
+        - /docker-entrypoint.sh
+        env:
+        - name: ELASTICSEARCH_URI
+          value: http://elasticsearch:9200/growi
+        - name: MONGO_URI
+          value: mongodb://mongo:27017/growi
+        - name: PASSWORD_SEED
+          value: changeme
+        image: app
+        name: app
+        ports:
+        - containerPort: 3000
+        resources: {}
+        volumeMounts:
+        - mountPath: /data
+          name: growi-data
+      restartPolicy: Always
+      volumes:
+      - name: growi-data
+        persistentVolumeClaim:
+          claimName: growi-data
+status: {}
