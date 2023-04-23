@@ -15,7 +15,16 @@ spec:
         io.kompose.service: app
     spec:
       containers:
-      - args:
+      - image: weseek/growi:6
+        name: app
+        ports:
+        - containerPort: 3000
+        resources: {}
+        imagePullPolicy: IfNotPresent
+        volumeMounts:
+        - mountPath: /data
+          name: growi-data
+        args:
         - yarn migrate && node -r dotenv-flow/config --expose_gc dist/server/app.js
         command:
         - dockerize
@@ -33,14 +42,6 @@ spec:
           value: mongodb://mongo:27017/growi
         - name: PASSWORD_SEED
           value: changeme
-        image: weseek/growi:6
-        name: app
-        ports:
-        - containerPort: 3000
-        resources: {}
-        volumeMounts:
-        - mountPath: /data
-          name: growi-data
       restartPolicy: Always
       volumes:
       - name: growi-data

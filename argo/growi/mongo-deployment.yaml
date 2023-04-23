@@ -18,6 +18,7 @@ spec:
       - image: mongo:4.4
         name: mongo
         resources: {}
+        imagePullPolicy: IfNotPresent
         volumeMounts:
         - mountPath: /data
           name: mongo-db

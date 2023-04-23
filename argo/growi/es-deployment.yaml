@@ -25,6 +25,7 @@ spec:
         - name: bootstrap.memory_lock
           value: "true"
         resources: {}
+        imagePullPolicy: IfNotPresent
         volumeMounts:
         - mountPath: /usr/share/elasticsearch/data
           name: es-data
