@@ -9,8 +9,6 @@ spec:
   selector:
     matchLabels:
       io.kompose.service: mongo
-  strategy:
-    type: Recreate
   template:
     metadata:
       labels:
@@ -21,15 +19,9 @@ spec:
         name: mongo
         resources: {}
         volumeMounts:
-        - mountPath: /data/configdb
-          name: mongo-configdb
-        - mountPath: /data/db
+        - mountPath: /data
           name: mongo-db
-      restartPolicy: Always
       volumes:
-      - name: mongo-configdb
-        persistentVolumeClaim:
-          claimName: mongo-configdb
       - name: mongo-db
         persistentVolumeClaim:
           claimName: mongo-db
