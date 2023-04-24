@@ -11,4 +11,4 @@ spec:
       name: http
       protocol: HTTP
     hosts:
-    - "growi.turai.work"
+    - "art-wiki.turai.work"
