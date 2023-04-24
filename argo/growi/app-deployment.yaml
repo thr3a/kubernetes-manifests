@@ -21,9 +21,6 @@ spec:
         - containerPort: 3000
         resources: {}
         imagePullPolicy: IfNotPresent
-        # volumeMounts:
-        # - mountPath: /data
-        #   name: growi-data
         env:
         - name: ELASTICSEARCH_URI
           value: http://elasticsearch:9200/growi
@@ -31,17 +28,6 @@ spec:
           value: mongodb://mongo:27017/growi
         - name: PASSWORD_SEED
           value: changeme
-          # args:
-          # - yarn migrate && node -r dotenv-flow/config --expose_gc dist/server/app.js
-          # command:
-          # - dockerize
-          # - -wait
-          # - tcp://mongo:27017
-          # - -wait
-          # - tcp://elasticsearch:9200
-          # - -timeout
-          # - 60s
-          # - /docker-entrypoint.sh
       volumes:
       - name: growi-data
         persistentVolumeClaim:
