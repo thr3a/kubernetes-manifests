@@ -8,3 +8,13 @@ data:
   # published to the repository. Reconciliation by timeout is disabled if timeout is set to 0. Three minutes by default.
   # > Note: argocd-repo-server deployment must be manually restarted after changing the setting.
   timeout.reconciliation: 10s
+
+# 確認方法
+# $ kubectl describe -n argocd app -A | grep "Reconciled At:"
+#   Reconciled At:   2023-05-12T19:04:34Z
+#   Reconciled At:   2023-05-12T19:04:34Z
+#   Reconciled At:   2023-05-12T19:04:34Z
+#   Reconciled At:   2023-05-12T19:04:34Z
+#   Reconciled At:   2023-05-12T19:04:34Z
+#   Reconciled At:   2023-05-12T19:04:34Z
+#   Reconciled At:   2023-05-12T19:04:34Z
