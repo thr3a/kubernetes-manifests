@@ -1,0 +1,16 @@
+# https://blog.1q77.com/2020/03/argocd-istio-ingress/#tls-termination-%e6%96%b9%e6%b3%952
+# k get -n argocd svc argocd-server -o yaml | yq .spec
+apiVersion: v1
+kind: Service
+metadata:
+  name: argocd-server
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  - name: grpc
+    port: 443
+    protocol: TCP
+    targetPort: 8080

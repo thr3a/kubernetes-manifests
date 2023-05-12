@@ -7,23 +7,23 @@ spec:
   selector:
     istio: ingressgateway
   servers:
-    - hosts:
-        - argocd.turai.work
-      port:
-        name: http
-        number: 80
-        protocol: HTTP
-      tls:
-        httpsRedirect: true
-    - hosts:
-        - argocd.turai.work
-      port:
-        name: https
-        number: 443
-        protocol: HTTPS
-      tls:
-        mode: SIMPLE
-        credentialName: oreore-turaiwork-credential
+  - hosts:
+    - argocd.turai.work
+    port:
+      name: http
+      number: 80
+      protocol: HTTP
+    tls:
+      httpsRedirect: true
+  - hosts:
+    - argocd.turai.work
+    port:
+      name: https
+      number: 443
+      protocol: HTTPS
+    tls:
+      mode: SIMPLE
+      credentialName: oreore-turaiwork-credential
 ---
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
@@ -32,23 +32,23 @@ metadata:
   namespace: argocd
 spec:
   gateways:
-    - argocd-gw
+  - argocd-gw
   hosts:
-    - argocd.turai.work
+  - argocd.turai.work
   http:
-    - name: grpc
-      match:
-        - headers:
-            user-agent:
-              prefix: argocd-client
-      route:
-        - destination:
-            host: argocd-server
-            port:
-              number: 443
-    - name: http
-      route:
-        - destination:
-            host: argocd-server
-            port:
-              number: 80
+  - name: grpc
+    match:
+    - headers:
+        user-agent:
+          prefix: argocd-client
+    route:
+    - destination:
+        host: argocd-server
+        port:
+          number: 443
+  - name: http
+    route:
+    - destination:
+        host: argocd-server
+        port:
+          number: 80
