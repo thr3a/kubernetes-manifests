@@ -15,14 +15,14 @@ spec:
     spec:
       serviceAccountName: sa
       containers:
-      - image: ghcr.io/thr3a/misc-ai:12
-        resources: {}
-        imagePullPolicy: IfNotPresent
-        name: web
-        command: ['node', 'server.js']
-        # command: ['npm', 'run', 'node-server']
-        ports:
-        - containerPort: 3000
-        envFrom:
-        - secretRef:
-            name: my-secret
+        - image: ghcr.io/thr3a/misc-ai:13
+          resources: {}
+          imagePullPolicy: IfNotPresent
+          name: web
+          command: ['node', 'server.js']
+          # command: ['npm', 'run', 'node-server']
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - secretRef:
+                name: my-secret
