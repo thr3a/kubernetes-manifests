@@ -19,7 +19,7 @@ spec:
         resources: {}
         imagePullPolicy: IfNotPresent
         name: web
-        command: ['node', 'server.js']
+        command: ['node', '-e', '"console.log(process.env.OPENAI_APIKEY)"']
         ports:
         - containerPort: 3000
         envFrom:
