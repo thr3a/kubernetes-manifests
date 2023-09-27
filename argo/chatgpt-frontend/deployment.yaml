@@ -19,7 +19,6 @@ spec:
         resources: {}
         imagePullPolicy: IfNotPresent
         name: web
-        command: ['npm', 'run', 'dev']
         ports:
         - containerPort: 3000
         envFrom:
