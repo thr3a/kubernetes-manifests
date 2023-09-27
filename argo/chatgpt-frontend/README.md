@@ -6,6 +6,8 @@ k label namespace chatgpt-frontend istio-injection=enabled
 
 k create secret generic my-secret -n chatgpt-frontend --from-env-file=.env
 
+argocd login argocd.turai.work --insecure
+
 argocd app create chatgpt-frontend --repo https://github.com/thr3a/kubernetes-manifests.git \
   --dest-namespace chatgpt-frontend \
   --dest-server https://kubernetes.default.svc \
