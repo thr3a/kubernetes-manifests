@@ -15,12 +15,12 @@ spec:
     spec:
       serviceAccountName: sa
       containers:
-      - image: ghcr.io/thr3a/misc-ai:87
-        resources: {}
-        imagePullPolicy: IfNotPresent
-        name: web
-        ports:
-        - containerPort: 9292
-        envFrom:
-        - secretRef:
-            name: my-secret
+        - image: ghcr.io/thr3a/hatena-blog-shibafu:2
+          resources: {}
+          imagePullPolicy: IfNotPresent
+          name: web
+          ports:
+            - containerPort: 9292
+          envFrom:
+            - secretRef:
+                name: my-secret
