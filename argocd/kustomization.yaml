@@ -2,9 +2,9 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: argocd
 resources:
-- https://raw.githubusercontent.com/argoproj/argo-cd/v2.8.5/manifests/install.yaml
-- gateway.yaml
+  - https://raw.githubusercontent.com/argoproj/argo-cd/v2.8.10/manifests/install.yaml
+  - gateway.yaml
 patches:
-- insecure-patch.yaml
-- resync-patch.yaml
-- svc-grpc.yaml
+  - insecure-patch.yaml
+  - resync-patch.yaml
+  - svc-grpc.yaml
