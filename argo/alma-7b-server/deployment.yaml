@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web
+  name: web-deployment
 spec:
   replicas: 1
   selector:
@@ -17,6 +17,6 @@ spec:
         - image: docker.io/kennethreitz/httpbin
           resources: {}
           imagePullPolicy: IfNotPresent
-          name: web
+          name: web1
           ports:
             - containerPort: 80
