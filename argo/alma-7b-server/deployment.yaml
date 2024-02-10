@@ -14,9 +14,9 @@ spec:
     spec:
       serviceAccountName: sa
       containers:
-        - image: docker.io/kennethreitz/httpbin
+        - image: ghcr.io/thr3a/alma-7b-server:latest
           resources: {}
           imagePullPolicy: IfNotPresent
           name: web1
           ports:
-            - containerPort: 80
+            - containerPort: 30000
