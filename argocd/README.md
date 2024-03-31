@@ -1,6 +1,11 @@
 # インストール
 
 ```
+openssl req -nodes -newkey rsa:2048 -keyout server.key -out server.csr -subj "/C=JP/ST=Hokkaido/L=Sapporo/O=Example INC./CN=*.turai.work"
+openssl x509 -req -days 3650 -in server.csr -signkey server.key -out server.crt
+```
+
+```
 kubectl create -n istio-system secret generic oreore-turaiwork-credential \
   --from-file=key=server.key \
   --from-file=cert=server.crt
