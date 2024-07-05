@@ -15,7 +15,7 @@ spec:
     spec:
       serviceAccountName: sa
       containers:
-        - image: ghcr.io/thr3a/misc-ai:102
+        - image: ghcr.io/thr3a/misc-ai:103
           resources: {}
           imagePullPolicy: IfNotPresent
           name: web
